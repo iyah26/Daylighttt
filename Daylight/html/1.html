@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daylight</title>
+  <link rel="stylesheet" href="../css/1.css" />
+</head>
+<body>
+
+  <!-- Loading screen -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="chase-loop">
+      <img src="../media/koala.png" class="koala" alt="Koala" />
+      <img src="../media/bunny.png" class="bunny" alt="Bunny" />
+    </div>
+    <div class="loading-text">
+      Loading
+      <span class="dot dot1">.</span>
+      <span class="dot dot2">.</span>
+      <span class="dot dot3">.</span>
+    </div>
+  </div>
+
+<!-- Message Box -->
+<div id="message-overlay" class="message-overlay hidden">
+  <div class="message-popup">
+    <button class="close-button" id="close-button">×</button>
+    <p id="message-content"></p>
+  </div>
+</div>
+
+<div class="main-box-group">
+  <div class="top-row">
+    <div class="box" id="box1"><a href="../html/maze.html" class="btn-link">Play</a></div>
+    <div class="box" id="box2"><a href="../html/read.html" class="btn-link">Read When...</a></div>
+    <div class="box" id="box3"><a href="../html/send.html" class="btn-link">Send Me Stuff</a></div>
+  </div>
+
+ <div class="wide-box" id="box4">
+  <a href="end.html" class="btn-link">End</a>
+</div>
+
+
+
+   <script src="../js/1.js"></script>
+
+</body>
+</html>

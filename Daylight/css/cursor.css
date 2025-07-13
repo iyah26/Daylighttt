@@ -1,0 +1,21 @@
+/* 🌸 Lily Cursor Styles */
+body {
+  cursor: none; /* Hide the default mouse pointer */
+}
+
+.lily-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+  z-index: 9999;
+  font-size: 24px;
+  transform: translate(-50%, -50%);
+}
+
+.lily-cursor::before {
+  content: "🌸";
+  display: block;
+}

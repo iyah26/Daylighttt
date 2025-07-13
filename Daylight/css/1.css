@@ -1,0 +1,471 @@
+body {
+  background: linear-gradient(to bottom, #ffe4f2, #ffdbe9, #fff9ec);
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+/* 🐨🐰 Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(130deg, #85cff4, #facdf0, #fdeecc);
+  background-size: 400% 400%;
+  animation: smokeGradient 10s ease infinite;
+  z-index: 101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 1s ease;
+  z-index: 9999;
+}
+
+@keyframes smokeGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.loading-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Koala & Bunny Chasing */
+/* 🐨🐰 Loading Screen (Loop Area) */
+.chase-loop {
+  position: relative;
+  width: 500px; /* width of the visible loop area */
+  height: 170px;
+  overflow: hidden; /* hide when animals leave the box */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.koala, .bunny {
+  position: absolute;
+  width: 150px !important;
+  height: auto;
+  filter: drop-shadow(0 0 0.30rem black);;
+}
+
+
+/* Koala runs left in a loop */
+.koala {
+  animation: koala-run 4s linear infinite; /* slower */
+}
+
+
+/* Bunny hops left behind koala */
+.bunny {
+  transform: translateX(550px); /* start outside right */
+  animation: bunny-hop 4.5s linear infinite;
+}
+
+
+
+/* Koala animation */
+@keyframes koala-run {
+  0%   { transform: translateX(600px); }
+  10%  { transform: translateX(530px); }
+  20%  { transform: translateX(460px); }
+  30%  { transform: translateX(390px); }
+  40%  { transform: translateX(320px); }
+  50%  { transform: translateX(250px); }
+  60%  { transform: translateX(180px); }
+  70%  { transform: translateX(110px); }
+  80%  { transform: translateX(40px); }
+  90%  { transform: translateX(-30px); }
+  100% { transform: translateX(-130px); }
+}
+
+
+@keyframes bunny-hop {
+  0%   { transform: translateX(700px) translateY(0); }
+  9%   { transform: translateX(630px) translateY(-12px); }
+  18%  { transform: translateX(560px) translateY(0); }
+  27%  { transform: translateX(490px) translateY(-12px); }
+  36%  { transform: translateX(420px) translateY(0); }
+  45%  { transform: translateX(350px) translateY(-12px); }
+  54%  { transform: translateX(280px) translateY(0); }
+  63%  { transform: translateX(210px) translateY(-12px); }
+  72%  { transform: translateX(140px) translateY(0); }
+  81%  { transform: translateX(70px)  translateY(-12px); }
+  90%  { transform: translateX(0px)   translateY(0); }
+  100% { transform: translateX(-130px) translateY(0); }
+}
+
+/* 🎞️ Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 6s;
+}
+
+.delayed {
+  animation-delay: 7.5s !important;
+}
+
+/* 🌸 Font */
+@font-face {
+  font-family: 'Beautiful Valentine';
+  src: url('../fonts/Beautiful Valentine.otf') format('truetype');
+}
+
+.loading-text {
+  position: relative;
+  top: 0px;
+  left: 30px;
+  font-family: 'Beautiful Valentine', cursive;
+  letter-spacing: 2px;
+  opacity: 1;
+  transition: opacity 1s ease;
+  font-size: 60px;
+  color: #ff9be6;
+  margin-top: 30px;
+  animation: bounceText 1.5s ease-in-out infinite;
+  filter: drop-shadow(5px 2px 0.1rem black);;
+}
+
+.loading-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+/* Dot animation */
+.dot {
+  opacity: 0;
+  animation: blink 1.5s infinite;
+}
+
+.dot1 { animation-delay: 0.1s; }
+.dot2 { animation-delay: 0.3s; }
+.dot3 { animation-delay: 0.5s; }
+
+/* Bouncy loading text */
+@keyframes bounceText {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* Dots fading in/out */
+@keyframes blink {
+  0%, 20%   { opacity: 0; }
+  30%, 80%  { opacity: 1; }
+  100%      { opacity: 0; }
+}
+
+.petal {
+  position: absolute;
+  top: -10vh;
+  width: 26px;
+  height: 50px;
+  background: radial-gradient(circle at 40% 30%, #ffc7df, #ff9ec8);
+  border-radius: 60% 60% 70% 70% / 90% 90% 40% 40%;
+  transform: rotate(45deg) skewX(-5deg);
+  animation: fall 3s linear forwards;
+ 
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0.85;
+  box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.4),
+              0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg); /* not 110vh */
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+
+/* 🩷 Overlay background */
+.message-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(255, 192, 203, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(2px);
+}
+
+/* 🎀 Popup box */
+.message-popup {
+  background: #ffe4f2;
+  border: 2px solid #ff99cc;
+  padding: 30px 40px;
+  border-radius: 12px;
+  max-width: 320px;
+  text-align: center;
+  font-family: 'Beautiful Valentine', cursive;
+  font-size: 36px;
+  color: #c41465;
+  position: relative;
+  animation: zoomIn 0.3s ease forwards;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  animation: zoomIn 0.3s ease forwards;
+  animation-fill-mode: forwards;
+  transform: scale(1);
+}
+
+
+/* ✖️ Close button */
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #c41465;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ✨ Zoom In Animation */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.resting-petal {
+  /* No position: absolute */
+  width: 26px;
+  height: 50px;
+  transform: rotate(var(--angle, 0deg)) scale(0.7);
+  animation: idleWiggle 5s ease-in-out infinite;
+  animation-delay: calc(0.5s + 1s * var(--wiggle-delay));
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: auto;
+  z-index: -100;
+  position: absolute;
+  bottom: 0;
+}
+
+
+@keyframes idleWiggle {
+  0%, 100% { transform: translateY(0) rotate(var(--angle)); }
+  50% { transform: translateY(-2px) rotate(calc(var(--angle) + 3deg)); }
+}
+
+
+/* Optional hover effect */
+.resting-petal:hover {
+  transform: translateY(-15px) scale(1.1) rotate(var(--angle));
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff0f5;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow-x: hidden; /* only hide sideways scroll */
+  overflow-y: hidden; /* let petals fall below the screen */
+  position: relative;
+}
+
+@font-face {
+  font-family: 'Beautiful Valentine';
+  src: url('../fonts/Beautiful Valentine.otf') format('truetype');
+}
+
+.main-box-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 60px;
+}
+
+.top-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 60px;
+  flex-wrap: wrap;
+}
+
+/* Outer Box */
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: #ffcce0;
+  border: 3px dashed #ff99cc;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Blurred Background Preview */
+.box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+/* Specific preview images */
+#box1::before { background-image: url('../media/mario.jpg'); }
+#box2::before { background-image: url('../media/read.png'); }
+#box3::before { background-image: url('../media/send.png'); }
+
+/* Hover effect for blurred image */
+.box:hover::before {
+  opacity: 1;
+}
+
+.box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ✅ Bottom row: End box */
+.bottom-row {
+  display: flex;
+  justify-content: center;
+}
+
+.wide-box {
+  width: 940px;
+  height: 120px;
+  background-color: #ffcce0;
+  border: 3px dashed #ff99cc;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 0;
+}
+
+.wide-box::before {
+  background-image: url('../media/mario.jpg');
+}
+
+#box4:hover::before {
+  opacity: 1;
+}
+
+
+/* ✅ Background image for End box */
+#box4::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../media/Peace.webp'); /* adjust path if needed */
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.wide-box:hover::before {
+  opacity: 1;
+}
+
+.wide-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Button-style link */
+.btn-link {
+  font-family: 'Beautiful Valentine', cursive;
+  font-size: 1.5rem;
+  padding: 15px 30px;
+  background-color: #ffcce0; /* matches the box bg */
+  border: 1px solid black; /* added thick black border */
+  border-radius: 15px;
+  color: black;
+  cursor: pointer;
+  z-index: 2;
+  text-decoration: none;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+/* Hover glow effect */
+.btn-link:hover {
+  background-color: #fff176; /* soft yellow */
+  box-shadow: 0 0 30px #fff176;
+  transform: scale(1.05);
+}
+

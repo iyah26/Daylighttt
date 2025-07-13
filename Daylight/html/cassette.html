@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daylight</title>
+  <link rel="stylesheet" href="../css/cassette.css" />
+</head>
+<body>
+
+  <!-- Loading screen -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="chase-loop">
+      <img src="../media/koala.png" class="koala" alt="Koala" />
+      <img src="../media/bunny.png" class="bunny" alt="Bunny" />
+    </div>
+    <div class="loading-text">
+      Loading
+      <span class="dot dot1">.</span>
+      <span class="dot dot2">.</span>
+      <span class="dot dot3">.</span>
+    </div>
+  </div>
+
+<div class="main-wrapper">
+<div class="cassette-wrapper" id="cassette-wrapper">
+  <div class="cassette-body">
+
+    <!-- Song info goes here now -->
+    <div class="song-info-inside">
+      <div class="song-title" id="songTitle">Now Playing: —</div>
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+
+    <!-- Rest of the cassette -->
+    <div class="volume-knob" id="volumeKnob"></div>
+    <div class="reel-container">
+      <div class="reel" id="reel-left"></div>
+      <div class="tape"></div>
+      <div class="reel" id="reel-right"></div>
+    </div>
+    <div class="label">
+      <div class="label-text">♡</div>
+    </div>
+   <div class="controls">
+  <button id="rewindBtn">⏪</button>
+  <button id="playPauseBtn" onclick="togglePlayPause()">▶</button>
+  <button id="forwardBtn">⏩</button>
+</div>
+  </div>
+</div>
+
+
+  <!-- Audio Player -->
+  <audio id="audio"></audio>
+
+    <!-- Scroll-triggered message box -->
+  <div id="scrollBox" class="scroll-message-box">
+    <h2><center>Hey, you.</center></h2>
+<p>
+One year ago, I randomly met this stupidly sweet person who somehow ended up becoming one of the most important people in my life. It was so unexpected, but here we are: a year later and still annoying the hell out of each other. <br> </p>
+<br>
+<p>I made this website as my way of saying thank you for everything you’ve done and everything you are to me. Whenever life gets too loud and you're hesitating to come to me, you can always go to this little corner of the internet and remember how much you mean to me. I made it solely for you. <br> </p>
+<br>
+<b>Now about the cassette: </b> Play it in the background while scrolling through my letters !!<br>
+<p>You can click the fast forward button to skip to the next song, and hold it to fast forward within the current one. Click the rewind button to go back to the previous song, or hold it to rewind the same song. There's also a little volume wheel—it doesn’t work perfectly (I have no idea how to code this properly yet 😭), but it can adjust the volume a bit. <br>
+<br>I know it’s not how a real cassette player works exactly, but hey—close enough, right? <br> </p>
+<br>
+<p>You once said you wouldn’t know how to answer if someone asked your favorite song, so I didn’t ask. Instead, I stalked—<i>I mean,</i> gently peeked into your Airbuds profile (thank you for that, by the way!) and tried putting together a playlist of songs and artists you seem to love, and ones we both vibe with. I really hope you like it!! My taste isn’t as amazing as yours, so feel free to let me know if anything needs changing. <br></p>
+<br>
+<p>On the next page, you'll see four boxes—but I won't spoil what each one holds. You'll just have to find out for yourself :P Also, you'll notice some petals of lilies (supposedly...) gently falling across the screen. Each one contains a little message I wanted to tell you (some are lyrics), there are 10 in total! Just click on a petal to reveal a random one :) I made this as interactive as possible so go have fun! <3 </p>
+<br>
+<br>
+Happy first friendsarry again, Tais :) <br> <br>
+<div style="text-align: right;">
+  <h3><b>—A.</b></h3>
+<button id="hoverBtn" class="hover-button"></button>
+</div>
+
+
+
+  <!-- JavaScript -->
+  <script src="../js/cassette.js"></script>
+
+</body>
+</html>

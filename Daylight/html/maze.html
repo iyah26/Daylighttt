@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Maze</title>
+  <link rel="stylesheet" href="../css/maze.css" />
+</head>
+<body>
+
+  <!-- Loading screen -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="chase-loop">
+      <img src="../media/koala.png" class="koala" alt="Koala" />
+      <img src="../media/bunny.png" class="bunny" alt="Bunny" />
+    </div>
+    <div class="loading-text">
+      Loading
+      <span class="dot dot1">.</span>
+      <span class="dot dot2">.</span>
+      <span class="dot dot3">.</span>
+    </div>
+  </div>
+
+  <h1>goodluck blondy ;P</h1>
+
+  <div id="timer">30:00</div>
+
+
+
+  <div id="maze"></div>
+  <p id="message"></p>
+
+ <!-- ✅ Only one version -->
+<div id="question-modal" class="hidden">
+  <div id="question-box">
+    <p id="question-text"></p>
+    
+    <!-- Multiple choice buttons will be injected here -->
+    <div id="mc-buttons" class="hidden"></div>
+    
+    <!-- Short answer input -->
+    <input type="text" id="question-answer" placeholder="whats ur answer ho" />
+    
+    <p id="feedback" style="color: red; font-weight: bold; height: 20px;"></p>
+    <button id="submit-answer">Submit</button>
+  </div>
+</div>
+
+
+
+<!-- 🎉 Success Modal -->
+<div id="success-modal" class="hidden">
+  <div id="success-box">
+    <h2>You found the key!</h2>
+    <p> (surprisingly...) </p>
+    <button id="next-btn">Next</button>
+  </div>
+</div>
+
+<audio id="celebration-sound" src="../audio/yay.mp3"></audio>
+
+<div id="fireworks"></div>
+
+<div id="mobile-controls">
+  <button class="ctrl up">↑</button>
+  <div class="horizontal">
+    <button class="ctrl left">←</button>
+    <button class="ctrl down">↓</button>
+    <button class="ctrl right">→</button>
+  </div>
+</div>
+
+
+
+  <script src="../js/maze.js"></script>
+</body>
+</html>

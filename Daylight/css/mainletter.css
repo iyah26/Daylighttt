@@ -1,0 +1,493 @@
+
+body {
+  margin: 0;
+  background-color: #ffc7df; /* Softer light pink */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* 🐨🐰 Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(130deg, #85cff4, #facdf0, #fdeecc);
+  background-size: 400% 400%;
+  animation: smokeGradient 10s ease infinite;
+  z-index: 101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 1s ease;
+  z-index: 9999;
+}
+
+@keyframes smokeGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.loading-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Koala & Bunny Chasing */
+/* 🐨🐰 Loading Screen (Loop Area) */
+.chase-loop {
+  position: relative;
+  width: 500px; /* width of the visible loop area */
+  height: 170px;
+  overflow: hidden; /* hide when animals leave the box */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.koala, .bunny {
+  position: absolute;
+  width: 150px !important;
+  height: auto;
+  filter: drop-shadow(0 0 0.30rem black);;
+}
+
+
+/* Koala runs left in a loop */
+.koala {
+  animation: koala-run 4s linear infinite; /* slower */
+}
+
+
+/* Bunny hops left behind koala */
+.bunny {
+  transform: translateX(550px); /* start outside right */
+  animation: bunny-hop 4.5s linear infinite;
+}
+
+
+
+/* Koala animation */
+@keyframes koala-run {
+  0%   { transform: translateX(600px); }
+  10%  { transform: translateX(530px); }
+  20%  { transform: translateX(460px); }
+  30%  { transform: translateX(390px); }
+  40%  { transform: translateX(320px); }
+  50%  { transform: translateX(250px); }
+  60%  { transform: translateX(180px); }
+  70%  { transform: translateX(110px); }
+  80%  { transform: translateX(40px); }
+  90%  { transform: translateX(-30px); }
+  100% { transform: translateX(-130px); }
+}
+
+
+@keyframes bunny-hop {
+  0%   { transform: translateX(700px) translateY(0); }
+  9%   { transform: translateX(630px) translateY(-12px); }
+  18%  { transform: translateX(560px) translateY(0); }
+  27%  { transform: translateX(490px) translateY(-12px); }
+  36%  { transform: translateX(420px) translateY(0); }
+  45%  { transform: translateX(350px) translateY(-12px); }
+  54%  { transform: translateX(280px) translateY(0); }
+  63%  { transform: translateX(210px) translateY(-12px); }
+  72%  { transform: translateX(140px) translateY(0); }
+  81%  { transform: translateX(70px)  translateY(-12px); }
+  90%  { transform: translateX(0px)   translateY(0); }
+  100% { transform: translateX(-130px) translateY(0); }
+}
+
+/* 🎞️ Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 6s;
+}
+
+.delayed {
+  animation-delay: 7.5s !important;
+}
+
+/* 🌸 Font */
+@font-face {
+  font-family: 'Beautiful Valentine';
+  src: url('../fonts/Beautiful Valentine.otf') format('truetype');
+}
+
+.loading-text {
+  position: relative;
+  top: 0px;
+  left: 30px;
+  font-family: 'Beautiful Valentine', cursive;
+  letter-spacing: 2px;
+  opacity: 1;
+  transition: opacity 1s ease;
+  font-size: 60px;
+  color: #ff9be6;
+  margin-top: 30px;
+  animation: bounceText 1.5s ease-in-out infinite;
+  filter: drop-shadow(5px 2px 0.1rem black);;
+}
+
+.loading-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+/* Dot animation */
+.dot {
+  opacity: 0;
+  animation: blink 1.5s infinite;
+}
+
+.dot1 { animation-delay: 0.1s; }
+.dot2 { animation-delay: 0.3s; }
+.dot3 { animation-delay: 0.5s; }
+
+/* Bouncy loading text */
+@keyframes bounceText {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* Dots fading in/out */
+@keyframes blink {
+  0%, 20%   { opacity: 0; }
+  30%, 80%  { opacity: 1; }
+  100%      { opacity: 0; }
+}
+
+#envelope-container {
+  position: relative;
+  width: 500px;
+  height: 330px;
+  animation: float 3s ease-in-out infinite;
+}
+
+#envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Envelope body */
+.body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  background-color: #beab7c; /* Rose pink */
+  z-index: 1;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+/* Flaps */
+.flap.top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 250px solid transparent;
+  border-right: 250px solid transparent;
+  border-bottom: 230px solid #beab7c;
+  z-index: 5;
+  transform: rotateX(180deg); /* Closed position */
+  transition: transform 1s ease; /* So it animates smoothly */
+}
+
+.flap.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 165px solid transparent;
+  border-bottom: 165px solid transparent;
+  border-right: 250px solid #a08d63;
+  z-index: 4;
+  transform: rotate(180deg);
+}
+
+.flap.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 165px solid transparent;
+  border-bottom: 165px solid transparent;
+  border-left: 250px solid #a08d63;
+  z-index: 4;
+  transform: rotate(180deg);
+}
+
+.flap.bottom {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 0;
+  height: 0;
+  border-left: 250px solid transparent;
+  border-right: 250px solid transparent;
+  border-top: 167px solid #a08d63;
+  z-index: 4; /* <-- Fixed: make it appear above .body */
+  transform: rotate(180deg);
+}
+
+/* Keyhole */
+.keyhole {
+  position: absolute;
+  top: 140px;
+  left: 50%;
+  transform: translateX(-50%); /* original, unflipped */
+  transition: top 1s ease, transform 1s ease; /* ensure both animate */
+  z-index: 5;
+  width: 28px;
+  height: 40px;
+  background-color: black;
+  border-radius: 50% 50% 30% 30%;
+}
+
+
+.keyhole::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 1px;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Letter inside */
+#letter {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  overflow: visible;
+  transition: height 1s ease;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 1; /* Stay under flaps initially */
+  pointer-events: none;
+  margin-bottom: 40px;
+}
+
+@font-face {
+  font-family: 'mine';
+  src: url('../fonts/mine.otf') format('truetype');
+}
+
+#folded-paper {
+  width: 300px;
+  height: 200px;
+  margin: 0 auto;
+  background-color: #fffce3;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 1s ease, height 1s ease, width 1s ease;
+  overflow: hidden;
+  z-index: 2;
+  position: relative;
+  font-family: 'mine', sans-serif;
+  letter-spacing: -3px;
+  text-align: center;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition:
+    transform 1.2s ease,
+    height 0.8s ease,
+    width 0.8s ease,
+    z-index 0.3s ease;
+}
+
+#folded-paper .full-text {
+  display: none;
+  flex-direction: column;
+  padding: 40px; /* Or adjust to your liking */
+  margin: 0;
+  box-sizing: border-box;
+  text-align: justify;
+  height: auto;
+  width: 100%;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#folded-paper.expanded .full-text {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#folded-paper.expanded {
+  width: 1000px;
+  height: 700px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-y: auto;
+  z-index: 10;
+  position: relative;
+  top: -180px;
+  left: -250px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  padding: 40px; /* 🧾 Padding around the text */
+  box-sizing: border-box;
+  background-color: #fffce3;
+  border-radius: 12px;
+}
+
+#folded-paper.expanded .preview-text {
+  display: none;
+}
+
+/* The long unfolded letter */
+#unfolded-paper {
+  max-height: 0;
+  opacity: 0;
+  overflow-y: auto;
+  background-color: white;
+  margin: 20px auto 0;
+  padding: 20px;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: max-height 1s ease, opacity 1s ease;
+  position: relative;
+  z-index: 1;
+}
+
+#letter.unfolded #folded-paper {
+  transform: translateY(-220px); /* stays out */
+}
+
+#letter.unfolded #unfolded-paper {
+  max-height: 400px;
+  opacity: 1;
+}
+
+.fold {
+  margin: 10px 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Key */
+#key {
+  position: absolute;
+  top: 80%;
+  left: 10%;
+  width: 100px;
+  height: 20px;
+  background-color: #ffce22;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #a17b3d;
+  cursor: grab;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: filter 0.2s ease, transform 0.3s ease;
+}
+
+#key:hover {
+  filter: brightness(1.2) drop-shadow(0 0 20px gold);
+}
+
+/* Round key head */
+#key::before {
+  content: "";
+  position: absolute;
+  left: -35px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  background-color: #eba720;
+  border: 4px solid #d48f1a;
+  border-radius: 50%;
+  box-shadow: inset 0 0 6px #bca36d;
+}
+
+/* Hole inside the head */
+#key::after {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: #fceab5;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px #a17b3d;
+}
+
+/* Little tooth/tail at the end of the key */
+#key .tooth {
+  position: absolute;
+  right: 15px;
+  bottom: -15px;
+  width: 20px;
+  height: 15px;
+  background-color: #eba720;
+  border-radius: 0 0% 0% 0%;
+  box-shadow: inset 0 0 2px #a17b3d;
+  transform: rotate(0deg);
+}
+
+
+#back-btn {
+  margin-top: 40px;
+  padding: 10px 20px;
+  background-color: #ffdee9;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  font-family: 'mine', sans-serif;
+  font-size: 40px;
+}
+
+#back-btn:hover {
+  background-color: #f6e65d;
+  filter: brightness(1.2) drop-shadow(0 0 20px gold);
+}

@@ -1,0 +1,274 @@
+/* 🌍 Global Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* 🌸 Font */
+@font-face {
+  font-family: 'ROMANTIC';
+  src: url('../fonts/ROMANTIC.ttf') format('truetype');
+}
+
+/* 🌄 Background */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../media/Peace.webp');
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 🎀 Main Content */
+.main-content {
+  text-align: center;
+  margin-top: 100px;
+  z-index: 100;
+  position: relative;
+}
+
+.header-text {
+  font-size: 140px;
+  font-family: 'ROMANTIC', cursive;
+  color: #f6e65d;
+  text-shadow: 7px 7px 6px black;
+  position: relative;
+  top: -160px;
+  letter-spacing: 13px;
+  opacity: 0;
+}
+
+/* ✨ Enter Button */
+#enterBtn {
+  padding: 12px 24px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background-color: #ffdee9;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px black;
+  transition: background 0.3s ease, filter 0.3s ease;
+  position: relative;
+  top: 60px;
+  font-family: 'ROMANTIC', cursive;
+  letter-spacing: 2px;
+  opacity: 0;
+}
+
+#enterBtn:hover {
+  background-color: #f6e65d;
+  filter: brightness(1.2) drop-shadow(0 0 20px gold);
+}
+
+/* 🎬 Page Transition */
+.page-wrapper {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+.page-wrapper.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+/* 🐨🐰 Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(130deg, #85cff4, #facdf0, #fdeecc);
+  background-size: 400% 400%;
+  animation: smokeGradient 10s ease infinite;
+  z-index: 101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 1s ease;
+  z-index: 9999;
+}
+
+@keyframes smokeGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.loading-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Koala & Bunny Chasing */
+/* 🐨🐰 Loading Screen (Loop Area) */
+.chase-loop {
+  position: relative;
+  left: 380px;
+  width: 500px; /* width of the visible loop area */
+  height: 170px;
+  overflow: hidden; /* hide when animals leave the box */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.koala, .bunny {
+  position: absolute;
+  width: 150px !important;
+  height: auto;
+  filter: drop-shadow(0 0 0.30rem black);;
+}
+
+
+/* Koala runs left in a loop */
+.koala {
+  animation: koala-run 4s linear infinite; /* slower */
+}
+
+
+/* Bunny hops left behind koala */
+.bunny {
+  transform: translateX(550px); /* start outside right */
+  animation: bunny-hop 4.5s linear infinite;
+}
+
+
+
+/* Koala animation */
+@keyframes koala-run {
+  0%   { transform: translateX(600px); }
+  10%  { transform: translateX(530px); }
+  20%  { transform: translateX(460px); }
+  30%  { transform: translateX(390px); }
+  40%  { transform: translateX(320px); }
+  50%  { transform: translateX(250px); }
+  60%  { transform: translateX(180px); }
+  70%  { transform: translateX(110px); }
+  80%  { transform: translateX(40px); }
+  90%  { transform: translateX(-30px); }
+  100% { transform: translateX(-130px); }
+}
+
+
+@keyframes bunny-hop {
+  0%   { transform: translateX(700px) translateY(0); }
+  9%   { transform: translateX(630px) translateY(-12px); }
+  18%  { transform: translateX(560px) translateY(0); }
+  27%  { transform: translateX(490px) translateY(-12px); }
+  36%  { transform: translateX(420px) translateY(0); }
+  45%  { transform: translateX(350px) translateY(-12px); }
+  54%  { transform: translateX(280px) translateY(0); }
+  63%  { transform: translateX(210px) translateY(-12px); }
+  72%  { transform: translateX(140px) translateY(0); }
+  81%  { transform: translateX(70px)  translateY(-12px); }
+  90%  { transform: translateX(0px)   translateY(0); }
+  100% { transform: translateX(-130px) translateY(0); }
+}
+
+/* 🎞️ Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 6s;
+}
+
+.delayed {
+  animation-delay: 7.5s !important;
+}
+
+/* 🌸 Font */
+@font-face {
+  font-family: 'Beautiful Valentine';
+  src: url('../fonts/Beautiful Valentine.otf') format('truetype');
+}
+
+.loading-text {
+  position: relative;
+  top: 0px;
+  left: 400px;
+  font-family: 'Beautiful Valentine', cursive;
+  letter-spacing: 2px;
+  opacity: 1;
+  transition: opacity 1s ease;
+  font-size: 60px;
+  color: #ff9be6;
+  margin-top: 30px;
+  animation: bounceText 1.5s ease-in-out infinite;
+  filter: drop-shadow(5px 2px 0.1rem black);;
+}
+
+.loading-screen.show .loading-text {
+  opacity: 1;
+}
+
+
+/* Dot animation */
+.dot {
+  opacity: 0;
+  animation: blink 1.5s infinite;
+}
+
+.dot1 { animation-delay: 0.1s; }
+.dot2 { animation-delay: 0.3s; }
+.dot3 { animation-delay: 0.5s; }
+
+/* Bouncy loading text */
+@keyframes bounceText {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* Dots fading in/out */
+@keyframes blink {
+  0%, 20%   { opacity: 0; }
+  30%, 80%  { opacity: 1; }
+  100%      { opacity: 0; }
+}
+
+.loading-message {
+  margin-top: 20px;
+  font-size: 30px;
+  color: #b3005f;
+  font-style: italic;
+  text-align: center;
+  animation: floatFade 2s ease-in-out infinite;
+  position: relative;
+  top: 200px;
+  left: -350px;
+}
+
+@keyframes floatFade {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+

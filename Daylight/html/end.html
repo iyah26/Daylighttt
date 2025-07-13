@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>End</title>
+  <style>
+    @font-face {
+  font-family: 'Beautiful Valentine';
+  src: url('../fonts/Beautiful Valentine.otf') format('truetype');
+}
+
+    body {
+      font-family: 'Beautiful Valentine', cursive;
+      background: #facdf0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .quote {
+      font-size: 2rem;
+      max-width: 80%;
+      margin-bottom: 40px;
+      color: #444;
+    }
+
+    #enterBtn {
+  background-color: #ffdee9;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px black;
+  transition: background 0.3s ease, filter 0.3s ease;
+  position: relative;
+  top: 90px;
+  font-family: 'Beautiful Valentine', cursive;
+  letter-spacing: 2px;
+  font-size: 20px;
+  opacity: 1; /* make it visible */
+  padding: 10px
+}
+
+
+#enterBtn:hover {
+  background-color: #f6e65d;
+  filter: brightness(1.2) drop-shadow(0 0 20px gold);
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(130deg, #85cff4, #facdf0, #fdeecc);
+  background-size: 400% 400%;
+  animation: smokeGradient 10s ease infinite;
+  z-index: 101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 1s ease;
+  z-index: 9999;
+}
+
+@keyframes smokeGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.loading-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Koala & Bunny Chasing */
+/* 🐨🐰 Loading Screen (Loop Area) */
+.chase-loop {
+  position: relative;
+  width: 500px; /* width of the visible loop area */
+  height: 170px;
+  overflow: hidden; /* hide when animals leave the box */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.koala, .bunny {
+  position: absolute;
+  width: 150px !important;
+  height: auto;
+  filter: drop-shadow(0 0 0.30rem black);;
+}
+
+
+/* Koala runs left in a loop */
+.koala {
+  animation: koala-run 4s linear infinite; /* slower */
+}
+
+
+/* Bunny hops left behind koala */
+.bunny {
+  transform: translateX(550px); /* start outside right */
+  animation: bunny-hop 4.5s linear infinite;
+}
+
+
+
+/* Koala animation */
+@keyframes koala-run {
+  0%   { transform: translateX(600px); }
+  10%  { transform: translateX(530px); }
+  20%  { transform: translateX(460px); }
+  30%  { transform: translateX(390px); }
+  40%  { transform: translateX(320px); }
+  50%  { transform: translateX(250px); }
+  60%  { transform: translateX(180px); }
+  70%  { transform: translateX(110px); }
+  80%  { transform: translateX(40px); }
+  90%  { transform: translateX(-30px); }
+  100% { transform: translateX(-130px); }
+}
+
+
+@keyframes bunny-hop {
+  0%   { transform: translateX(700px) translateY(0); }
+  9%   { transform: translateX(630px) translateY(-12px); }
+  18%  { transform: translateX(560px) translateY(0); }
+  27%  { transform: translateX(490px) translateY(-12px); }
+  36%  { transform: translateX(420px) translateY(0); }
+  45%  { transform: translateX(350px) translateY(-12px); }
+  54%  { transform: translateX(280px) translateY(0); }
+  63%  { transform: translateX(210px) translateY(-12px); }
+  72%  { transform: translateX(140px) translateY(0); }
+  81%  { transform: translateX(70px)  translateY(-12px); }
+  90%  { transform: translateX(0px)   translateY(0); }
+  100% { transform: translateX(-130px) translateY(0); }
+}
+
+/* 🎞️ Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 6s;
+}
+
+.delayed {
+  animation-delay: 7.5s !important;
+}
+
+/* 🌸 Font */
+@font-face {
+  font-family: 'Beautiful Valentine';
+  src: url('../fonts/Beautiful Valentine.otf') format('truetype');
+}
+
+.loading-text {
+  position: relative;
+  top: 0px;
+  left: 30px;
+  font-family: 'Beautiful Valentine', cursive;
+  letter-spacing: 2px;
+  opacity: 1;
+  transition: opacity 1s ease;
+  font-size: 60px;
+  color: #ff9be6;
+  margin-top: 30px;
+  animation: bounceText 1.5s ease-in-out infinite;
+  filter: drop-shadow(5px 2px 0.1rem black);;
+}
+
+.loading-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+/* Dot animation */
+.dot {
+  opacity: 0;
+  animation: blink 1.5s infinite;
+}
+
+.dot1 { animation-delay: 0.1s; }
+.dot2 { animation-delay: 0.3s; }
+.dot3 { animation-delay: 0.5s; }
+
+/* Bouncy loading text */
+@keyframes bounceText {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* Dots fading in/out */
+@keyframes blink {
+  0%, 20%   { opacity: 0; }
+  30%, 80%  { opacity: 1; }
+  100%      { opacity: 0; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Loading screen -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="chase-loop">
+      <img src="../media/koala.png" class="koala" alt="Koala" />
+      <img src="../media/bunny.png" class="bunny" alt="Bunny" />
+    </div>
+    <div class="loading-text">
+      Loading
+      <span class="dot dot1">.</span>
+      <span class="dot dot2">.</span>
+      <span class="dot dot3">.</span>
+    </div>
+  </div>
+
+  <div class="quote">
+    "Stay close to people who feel like sunshine." <br> I didn't put that quote there if I thought otherwise.
+  </div>
+
+  <button id="enterBtn">Go back to the start?</button>
+
+</body>
+
+<script>window.addEventListener("load", () => {
+  const loadingScreen = document.getElementById("loading-screen");
+  setTimeout(() => {
+    loadingScreen.classList.add("hide");
+    setTimeout(() => {
+      loadingScreen.style.display = "none";
+      startPetals?.(); // Optional animation
+    }, 1000);
+  }, 3000);
+});
+
+document.getElementById("enterBtn").onclick = () => {
+  window.location.href = "../html/index.html";
+};
+
+
+</script>
+</html>

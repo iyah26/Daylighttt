@@ -1,0 +1,502 @@
+@font-face {
+  font-family: 'Dream Orphans';
+  src: url('../fonts/Dream Orphans.otf') format('truetype');
+}
+
+/* General Layout */
+body {
+  font-family: 'Dream Orphans', cursive;
+  background: #ffe0ec; /* soft pink */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  letter-spacing: 3px;
+}
+
+/* 🐨🐰 Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(130deg, #85cff4, #facdf0, #fdeecc);
+  background-size: 400% 400%;
+  animation: smokeGradient 10s ease infinite;
+  z-index: 101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 1s ease;
+  z-index: 9999;
+}
+
+@keyframes smokeGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.loading-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Koala & Bunny Chasing */
+/* 🐨🐰 Loading Screen (Loop Area) */
+.chase-loop {
+  position: relative;
+  width: 500px; /* width of the visible loop area */
+  height: 170px;
+  overflow: hidden; /* hide when animals leave the box */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.koala, .bunny {
+  position: absolute;
+  width: 150px !important;
+  height: auto;
+  filter: drop-shadow(0 0 0.30rem black);;
+}
+
+
+/* Koala runs left in a loop */
+.koala {
+  animation: koala-run 4s linear infinite; /* slower */
+}
+
+
+/* Bunny hops left behind koala */
+.bunny {
+  transform: translateX(550px); /* start outside right */
+  animation: bunny-hop 4.5s linear infinite;
+}
+
+
+
+/* Koala animation */
+@keyframes koala-run {
+  0%   { transform: translateX(600px); }
+  10%  { transform: translateX(530px); }
+  20%  { transform: translateX(460px); }
+  30%  { transform: translateX(390px); }
+  40%  { transform: translateX(320px); }
+  50%  { transform: translateX(250px); }
+  60%  { transform: translateX(180px); }
+  70%  { transform: translateX(110px); }
+  80%  { transform: translateX(40px); }
+  90%  { transform: translateX(-30px); }
+  100% { transform: translateX(-130px); }
+}
+
+
+@keyframes bunny-hop {
+  0%   { transform: translateX(700px) translateY(0); }
+  9%   { transform: translateX(630px) translateY(-12px); }
+  18%  { transform: translateX(560px) translateY(0); }
+  27%  { transform: translateX(490px) translateY(-12px); }
+  36%  { transform: translateX(420px) translateY(0); }
+  45%  { transform: translateX(350px) translateY(-12px); }
+  54%  { transform: translateX(280px) translateY(0); }
+  63%  { transform: translateX(210px) translateY(-12px); }
+  72%  { transform: translateX(140px) translateY(0); }
+  81%  { transform: translateX(70px)  translateY(-12px); }
+  90%  { transform: translateX(0px)   translateY(0); }
+  100% { transform: translateX(-130px) translateY(0); }
+}
+
+/* 🎞️ Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 6s;
+}
+
+.delayed {
+  animation-delay: 7.5s !important;
+}
+
+/* 🌸 Font */
+@font-face {
+  font-family: 'Beautiful Valentine';
+  src: url('../fonts/Beautiful Valentine.otf') format('truetype');
+}
+
+.loading-text {
+  position: relative;
+  top: 0px;
+  left: 30px;
+  font-family: 'Beautiful Valentine', cursive;
+  letter-spacing: 2px;
+  opacity: 1;
+  transition: opacity 1s ease;
+  font-size: 60px;
+  color: #ff9be6;
+  margin-top: 30px;
+  animation: bounceText 1.5s ease-in-out infinite;
+  filter: drop-shadow(5px 2px 0.1rem black);;
+}
+
+.loading-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+/* Dot animation */
+.dot {
+  opacity: 0;
+  animation: blink 1.5s infinite;
+}
+
+.dot1 { animation-delay: 0.1s; }
+.dot2 { animation-delay: 0.3s; }
+.dot3 { animation-delay: 0.5s; }
+
+/* Bouncy loading text */
+@keyframes bounceText {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* Dots fading in/out */
+@keyframes blink {
+  0%, 20%   { opacity: 0; }
+  30%, 80%  { opacity: 1; }
+  100%      { opacity: 0; }
+}
+
+h1 {
+  margin: 20px 0;
+  color: #d63384;
+}
+
+/* Maze Grid */
+#maze {
+  display: grid;
+  grid-template-columns: repeat(40, 20px);
+  grid-template-rows: repeat(40, 20px);
+  border: 4px solid #d63384;
+}
+
+/* Maze Cells */
+.cell {
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+}
+
+.cell.path {
+  background-color: #ffc2d1; /* pink path */
+}
+
+.cell:not(.path):not(.player):not(.key) {
+  background-color: #000; /* solid black wall */
+}
+
+.cell.player,
+.cell.key {
+  background-color: transparent !important;
+  position: relative;
+}
+
+.cell.player {
+  background-image: url('../media/marioq.gif'); /* Make sure mario.gif is in the same folder */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 0 8px 4px rgba(255, 255, 0, 0.6); /* glowing yellow */
+  animation: glow 2s infinite ease-in-out;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 6px 2px rgba(255, 255, 0, 0.4); }
+  50% { box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.8); }
+  100% { box-shadow: 0 0 6px 2px rgba(255, 255, 0, 0.4); }
+}
+
+.cell.player::after {
+  content: none;
+}
+
+
+/* Key Emoji */
+.cell.key::after {
+  content: '🗝️';
+  position: absolute;
+  font-size: 16px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.key-glow {
+  animation: keyPulse 1.5s infinite ease-in-out;
+  box-shadow: 0 0 10px 6px rgba(0, 255, 255, 0.6);
+}
+
+@keyframes keyPulse {
+  0% { box-shadow: 0 0 5px 2px rgba(0, 255, 255, 0.3); }
+  50% { box-shadow: 0 0 15px 8px rgba(0, 255, 255, 0.9); }
+  100% { box-shadow: 0 0 5px 2px rgba(0, 255, 255, 0.3); }
+}
+
+
+/* Modal Overlay (not hidden by default anymore) */
+#question-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex; /* keep flex */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Hidden state controlled by this class */
+.hidden {
+  display: none !important;
+}
+
+/* Question Box */
+#question-box {
+  background-color: #ffcce0;
+  border: 3px dashed #ff99cc;
+  border-radius: 20px;
+  padding: 20px 30px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#question-box p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+#question-box input {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 2px solid #ff99cc;
+  border-radius: 8px;
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+#question-box button {
+  padding: 8px 16px;
+  font-size: 15px;
+  background-color: #ff99cc;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+#question-box button:hover {
+  background-color: #ff66b2;
+}
+
+#success-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#success-box {
+  background-color: #ffcce0;
+  border: 3px dashed #ff99cc;
+  border-radius: 20px;
+  padding: 20px 30px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#success-box p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+#success-box button {
+  padding: 8px 16px;
+  font-size: 15px;
+  background-color: #ff99cc;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+#success-box button:hover {
+  background-color: #ff66b2;
+}
+
+/* 🎆 Fireworks overlay */
+#fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* Basic firework burst */
+.firework {
+  position: absolute;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  background: yellow;
+  animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(4) translate(
+      calc(var(--x) * 1px),
+      calc(var(--y) * 1px)
+    );
+  }
+}
+
+#mobile-controls {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#mobile-controls .horizontal {
+  display: flex;
+  gap: 5px;
+}
+
+#mobile-controls .ctrl {
+  background: #ffcc00;
+  border: none;
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (min-width: 801px) {
+  #mobile-controls {
+    display: none; /* Hide on desktop */
+  }
+}
+
+#timer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 8px 14px;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.timeout-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.timeout-modal .modal-content {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: black;
+}
+
+#mc-buttons {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 10px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#mc-buttons .mc-choice {
+  padding: 12px 16px;
+  background-color: #ffeef3; /* 🌸 very light pink */
+  border: 2px solid #d89aaa; /* soft pink border */
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000; /* black text */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  text-align: left;
+}
+
+#mc-buttons .mc-choice:hover {
+  background-color: #ffd8e6; /* slightly darker pink on hover */
+  transform: scale(1.03); /* subtle enlargement */
+}
+

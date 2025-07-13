@@ -1,0 +1,536 @@
+body {
+  background: linear-gradient(to bottom right, #ffe3ec, #fcd1f3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+
+/* 🎬 Page Transition */
+.page-wrapper {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+.page-wrapper.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+/* 🐨🐰 Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(130deg, #85cff4, #facdf0, #fdeecc);
+  background-size: 400% 400%;
+  animation: smokeGradient 10s ease infinite;
+  z-index: 101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 1s ease;
+  z-index: 9999;
+}
+
+@keyframes smokeGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.loading-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Koala & Bunny Chasing */
+/* 🐨🐰 Loading Screen (Loop Area) */
+.chase-loop {
+  position: relative;
+  width: 500px; /* width of the visible loop area */
+  height: 170px;
+  overflow: hidden; /* hide when animals leave the box */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.koala, .bunny {
+  position: absolute;
+  width: 150px !important;
+  height: auto;
+  filter: drop-shadow(0 0 0.30rem black);;
+}
+
+
+/* Koala runs left in a loop */
+.koala {
+  animation: koala-run 4s linear infinite; /* slower */
+}
+
+
+/* Bunny hops left behind koala */
+.bunny {
+  transform: translateX(550px); /* start outside right */
+  animation: bunny-hop 4.5s linear infinite;
+}
+
+
+
+/* Koala animation */
+@keyframes koala-run {
+  0%   { transform: translateX(600px); }
+  10%  { transform: translateX(530px); }
+  20%  { transform: translateX(460px); }
+  30%  { transform: translateX(390px); }
+  40%  { transform: translateX(320px); }
+  50%  { transform: translateX(250px); }
+  60%  { transform: translateX(180px); }
+  70%  { transform: translateX(110px); }
+  80%  { transform: translateX(40px); }
+  90%  { transform: translateX(-30px); }
+  100% { transform: translateX(-130px); }
+}
+
+
+@keyframes bunny-hop {
+  0%   { transform: translateX(700px) translateY(0); }
+  9%   { transform: translateX(630px) translateY(-12px); }
+  18%  { transform: translateX(560px) translateY(0); }
+  27%  { transform: translateX(490px) translateY(-12px); }
+  36%  { transform: translateX(420px) translateY(0); }
+  45%  { transform: translateX(350px) translateY(-12px); }
+  54%  { transform: translateX(280px) translateY(0); }
+  63%  { transform: translateX(210px) translateY(-12px); }
+  72%  { transform: translateX(140px) translateY(0); }
+  81%  { transform: translateX(70px)  translateY(-12px); }
+  90%  { transform: translateX(0px)   translateY(0); }
+  100% { transform: translateX(-130px) translateY(0); }
+}
+
+/* 🎞️ Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 6s;
+}
+
+.delayed {
+  animation-delay: 7.5s !important;
+}
+
+/* 🌸 Font */
+@font-face {
+  font-family: 'Beautiful Valentine';
+  src: url('../fonts/Beautiful Valentine.otf') format('truetype');
+}
+
+.loading-text {
+  position: relative;
+  top: 0px;
+  left: 30px;
+  font-family: 'Beautiful Valentine', cursive;
+  letter-spacing: 2px;
+  opacity: 1;
+  transition: opacity 1s ease;
+  font-size: 60px;
+  color: #ff9be6;
+  margin-top: 30px;
+  animation: bounceText 1.5s ease-in-out infinite;
+  filter: drop-shadow(5px 2px 0.1rem black);;
+}
+
+.loading-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+/* Dot animation */
+.dot {
+  opacity: 0;
+  animation: blink 1.5s infinite;
+}
+
+.dot1 { animation-delay: 0.1s; }
+.dot2 { animation-delay: 0.3s; }
+.dot3 { animation-delay: 0.5s; }
+
+/* Bouncy loading text */
+@keyframes bounceText {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* Dots fading in/out */
+@keyframes blink {
+  0%, 20%   { opacity: 0; }
+  30%, 80%  { opacity: 1; }
+  100%      { opacity: 0; }
+}
+
+.cassette-wrapper {
+  background: #ffc4dd;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 180px;
+  left: 30px;
+}
+
+.cassette-body {
+  background: #fff0f6;
+  border: 4px solid #ff8fb7;
+  border-radius: 16px;
+  width: 400px;
+  height: 250px;
+  padding: 20px;
+  position: relative;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+.reel-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-top: 20px;
+}
+
+.reel {
+  width: 80px;
+  height: 80px;
+  border: 6px solid #ff85a2;
+  border-radius: 50%;
+  position: relative;
+  background: #fff;
+  box-shadow: inset 0 0 4px #ff85a2;
+  position: relative;
+  top: -30px;
+}
+
+.reel::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: #ff85a2;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.reel::after {
+  content: "";
+  width: 4px;
+  height: 40px;
+  background: #ff85a2;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.tape {
+  position: absolute;
+  top: 20%;
+  left: 90px;
+  right: 90px;
+  height: 6px;
+  background: #d59ba4;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.label {
+  position: absolute;
+  top: 180px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffb6c1;
+  padding: 8px 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.label-text {
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.controls {
+  text-align: center;
+  margin-top: 170px;
+}
+
+.controls button {
+  background: #fff;
+  border: 2px solid #ff8fb7;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 8px;
+  font-size: 18px;
+  position: relative;
+  top: -130px;
+  left: 50px;
+  color: #ff5e88;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.controls button:hover {
+    filter: brightness(1.2) drop-shadow(0 0 20px #ff9be6);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin {
+  animation: spin 2s linear infinite;
+}
+
+.volume-control {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.volume-control input[type=range] {
+  width: 100px;
+  accent-color: #ff8fb7;
+}
+
+.volume-wheel {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 5px solid #ff85a2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 20px;
+  background: radial-gradient(#fff 50%, #ffc4dd);
+}
+
+.volume-wheel input[type="range"] {
+  transform: rotate(-90deg);
+  width: 60px;
+  position: absolute;
+  opacity: 0; /* hide default slider */
+}
+
+.volume-knob {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #ff85a2;
+  border-radius: 50%;
+  position: relative;
+  top: 210px;
+  left: -150px;
+  background: radial-gradient(circle at center, #fff0f6, #ffc4dd);
+  box-shadow: inset 0 0 10px #ff9bc3;
+  cursor: pointer;
+  margin: 20px auto;
+  transform: rotate(0deg);
+  z-index: 10;
+}
+
+.volume-knob button:hover {
+    filter: brightness(1.2) drop-shadow(0 0 20px #ff9be6);
+}
+
+.cassette-player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.song-display-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff0f6;
+  border: 3px solid #ffaad2;
+  border-radius: 14px;
+  padding: 15px 25px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  width: fit-content;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.song-title {
+  font-size: 26px;
+  color: #ff69b4;
+  font-weight: bold;
+  font-family: 'Beautiful Valentine', cursive;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.progress-container {
+  width: 300px;
+  height: 8px;
+  background: #ffd5e5;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: #ff5e88;
+  transition: width 0.2s ease;
+  border-radius: 4px;
+}
+
+.song-info-inside {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffe5f1;
+  padding: 8px 16px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 80%;
+  z-index: 5;
+}
+
+.song-info-inside .song-title {
+  font-size: 15px;
+  margin: 0 0 6px;
+  color: #ff69b4;
+  font-family: 'Beautiful Valentine', cursive;
+}
+
+.song-info-inside .progress-container {
+  width: 100%;
+  height: 6px;
+  background: #ffd5e5;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.song-info-inside .progress-bar {
+  width: 0%;
+  height: 100%;
+  background: #ff5e88;
+  transition: width 0.2s ease;
+}
+
+/* 🌸 Font */
+@font-face {
+  font-family: 'fav';
+  src: url('../fonts/fav.ttf') format('truetype');
+}
+
+.scroll-message-box {
+  margin-top: 40px;
+  background: #fff0f6;
+  border: 2px solid #ffaad2;
+  border-radius: 20px;
+  padding: 30px 40px;
+  max-width: 1000px;         /* widened */
+  width: 90%;
+  text-align: left;         /* changed from center */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;      /* added for clean edge-to-edge look */
+  position: relative;
+  top: 300px;
+  left: 30px;
+  font-size: 20px;
+  font-family: 'fav', cursive;
+    letter-spacing: 1px;
+}
+
+.scroll-message-box p {
+  margin-bottom: 1px;
+  text-indent: 2em; /* or 20px */
+}
+
+.scroll-message-box button {
+  margin-top: 10px;
+  background: #ffaad2;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 100px;
+  padding-bottom: 500px; /* ⬅️ Add this */
+}
+
+.hover-button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-style: italic;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Default text */
+.hover-button::before {
+  content: 'see what i did there?';
+}
+
+/* Hover state replaces text and adds glow */
+.hover-button:hover::before {
+  content: '"yeah bitch" i can hear you';
+  color: yellow;
+}
+
+
+.hover-button::after {
+  content: 'yeah';
+ background-color: #f6e65d;
+  filter: brightness(1.2) drop-shadow(0 0 20px gold);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: right;
+}

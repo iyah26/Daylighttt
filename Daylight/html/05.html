@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>02</title>
+  <style>
+    @font-face {
+      font-family: 'fav';
+      src: url('../fonts/fav.ttf') format('truetype');
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffc7df; /* Light pink */
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'fav', cursive;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      margin: 40px; /* Margin from all sides */
+      width: 80vw;
+      max-width: 800px;
+      height: auto;
+    }
+
+    .message-box {
+      background-color: #fffb99; /* Plain yellow */
+      padding: 40px 60px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+
+      width: 100%;
+      height: 400px; /* 👈 Fixed height */
+      overflow-y: auto; /* 👈 Makes content scrollable */
+    }
+
+    .message-box p {
+      margin: 0;
+      font-size: 20px;
+      color: #000000;
+      text-align: justify;
+      line-height: 2;
+      text-indent: 2em;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      background-color: #ff9be6;
+      border: 1;
+      border-color: black;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'fav', cursive;
+      font-size: 16px;
+      letter-spacing: 1px;
+      transition: background 0.3s ease, filter 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #f6e65d;
+  filter: brightness(1.2) drop-shadow(0 0 20px gold);
+    }
+  </style>
+</head>
+<body>
+ <div class="container">
+  <div class="message-box">
+
+<h1>Heyooo, can't sleep?</h1> 
+
+<p>I bet you drank coffee.</p>
+
+<p>Kidding.</p>
+
+<p>(If you really need someone right now, hit me up!! I bet I’m still awake)</p>
+
+<p>Staying up late is normal for you, I know. But some nights just hit different. Nights when you do want to sleep, but you can’t.</p>
+
+<p>And I know that feeling, when the world is quiet but your thoughts won’t be. When your body’s tired but your mind just won’t shut up. Or when something hurts and the silence makes it louder.</p>
+
+<p>Alright, let’s take a breath. Don’t stress about not sleeping—that only makes it harder. After this letter, try turning off your electronics, okay?</p>
+
+<p>Try this:<br></p>
+<p>Breathe in for 4. Hold for 7. Breathe out for 8.<br></p>
+<p>Do it a few times, it’ll help slow your heart down.</p>
+
+<p>Nothing needs to be solved at this hour. You can set it down, just for now. You deserve rest too. There’s still tomorrow, and you’ll handle it better with sleep.</p>
+
+<p>If you’re scared/just need to feel sleepy, let’s watch Peppa Pig</p>
+
+<p>
+  <a href="https://www.youtube.com/watch?v=w3tgg0eS2xw" target="_blank">watch with me!</a>
+</p>
+
+<p>Try closing your eyes now.<br></p>
+<p>Let your thoughts drift somewhere else. Think of a happy memory. <i>(Probably one with me. I’m joking.)</i> Start reliving that memory to calm you down.</p>
+
+<p>You love music, right? Play something soft !! Or even a podcast if you want. Just something not too interesting so your brain winds down.</p>
+
+<p>Sleep well, okay?<br></p>
+<p>Or at least rest. That counts too.</p>
+
+<p>I’ll be here again tomorrow. Goodnight, love you!</p>
+
+<h3>—A.</h3>
+
+
+  </div>
+  <button class="back-btn" onclick="window.location.href='../html/read.html'">← Back</button>
+</div>
+
+</body>
+</html>

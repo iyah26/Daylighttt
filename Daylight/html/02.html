@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>02</title>
+  <style>
+    @font-face {
+      font-family: 'fav';
+      src: url('../fonts/fav.ttf') format('truetype');
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffc7df; /* Light pink */
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'fav', cursive;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      margin: 40px; /* Margin from all sides */
+      width: 80vw;
+      max-width: 800px;
+      height: auto;
+    }
+
+    .message-box {
+      background-color: #fffb99; /* Plain yellow */
+      padding: 40px 60px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+
+      width: 100%;
+      height: 400px; /* 👈 Fixed height */
+      overflow-y: auto; /* 👈 Makes content scrollable */
+    }
+
+    .message-box p {
+      margin: 0;
+      font-size: 20px;
+      color: #000000;
+      text-align: justify;
+      line-height: 2;
+      text-indent: 2em;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      background-color: #ff9be6;
+      border: 1;
+      border-color: black;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'fav', cursive;
+      font-size: 16px;
+      letter-spacing: 1px;
+      transition: background 0.3s ease, filter 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #f6e65d;
+  filter: brightness(1.2) drop-shadow(0 0 20px gold);
+    }
+  </style>
+</head>
+<body>
+ <div class="container">
+  <div class="message-box">
+
+<h1>Heyyy, bruv. </h1> 
+
+<p>I was kinda hoping you’d never have to open this one... but I guess that’ll be too good to be true, yeah? </p>
+
+<p>I don’t know what exactly brought you here, but if you’re reading this, then something must’ve hurt. Maybe everything just feels heavy today. Maybe it’s one of those days where everything gets to you. Or maybe you don’t even know why you’re feeling this way, and that’s okay too.</p>
+
+<p>It’s okay, you can let go for a bit. You don’t have to pretend you’re fine right now :) You’re allowed to feel this! You don’t have to justify it. You don’t need to “fix” it right away. Emotions aren’t problems to be solved, they’re experiences to be held, understood, and eventually, released.</p>
+
+<p>Be gentle with yourself, please. Rest if you need to, sleep helps me a lot! Cry if it helps. Go silent for a while if words feel too loud. Watch something to distract yourself. Take walks if you want! I think fresh air would help.</p>
+
+<p>Know that you’re not being dramatic, you’re not being weak. Hit me up if you really can’t take it anymore xx.</p>
+
+<p>Take your time. The world can wait.</p>
+<p>You’ve survived every hard day before this. You’ll get through this one too.</p>
+
+<p>I have always believed in you :)</p>
+
+<p>I love youuu!! <3 </p>
+<h3>—A.</h3>
+
+
+  </div>
+  <button class="back-btn" onclick="window.location.href='../html/read.html'">← Back</button>
+</div>
+
+</body>
+</html>

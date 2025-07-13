@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>02</title>
+  <style>
+    @font-face {
+      font-family: 'fav';
+      src: url('../fonts/fav.ttf') format('truetype');
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffc7df; /* Light pink */
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'fav', cursive;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      margin: 40px; /* Margin from all sides */
+      width: 80vw;
+      max-width: 800px;
+      height: auto;
+    }
+
+    .message-box {
+      background-color: #fffb99; /* Plain yellow */
+      padding: 40px 60px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+
+      width: 100%;
+      height: 400px; /* 👈 Fixed height */
+      overflow-y: auto; /* 👈 Makes content scrollable */
+    }
+
+    .message-box p {
+      margin: 0;
+      font-size: 20px;
+      color: #000000;
+      text-align: justify;
+      line-height: 2;
+      text-indent: 2em;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      background-color: #ff9be6;
+      border: 1;
+      border-color: black;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'fav', cursive;
+      font-size: 16px;
+      letter-spacing: 1px;
+      transition: background 0.3s ease, filter 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #f6e65d;
+  filter: brightness(1.2) drop-shadow(0 0 20px gold);
+    }
+  </style>
+</head>
+<body>
+ <div class="container">
+  <div class="message-box">
+
+<h1>OH NO WHAT HAVE I DONE???</h1> 
+
+<p>I don’t know exactly what’s going through your head right now, but if you’re here—and if something I did made you feel upset, distant, or hurt in any way at all—I’m really, truly sorry.</p>
+
+<p>I might’ve said something wrong. I might’ve missed a moment when I should’ve done up better. Or maybe I did something without realizing how it affected you. Whatever it was it wasn’t my intention to hurt you, I swear.</p>
+
+<p>You matter so much to me. The last thing I want is to make you feel like your feelings aren’t valid, or like you can’t talk to me. I understand if you’re not ready to say anything right now. If you need space, or time—I respect that. I’ll be here when you are.</p>
+
+<p>If I made a mistake, please tell me so I can learn from it. I want to understand. I want to be better for you.</p>
+
+<p>You’re allowed to feel upset. You’re allowed to take your time. And I’ll still be here, ready to listen, without getting defensive or shutting you down. Your silence doesn’t scare me, but the thought of losing you? That does.</p>
+
+<p>So whenever you’re ready, please tell me. No pressure. No rush. Just me, trying to fix what I can and hold space for what I can’t. Tell me because I want to properly apologize. This letter isn’t gonna cut it. It doesn’t even come close to how much I want to say to you in person.</p>
+
+<p>Just... thank you for existing. And I’m sorry if I made it harder, even for a second. Seriously dude, tell me, okay? I love you, bro and I want to make things right.</p>
+
+<h3>—A.</h3>
+
+
+  </div>
+  <button class="back-btn" onclick="window.location.href='../html/read.html'">← Back</button>
+</div>
+
+</body>
+</html>

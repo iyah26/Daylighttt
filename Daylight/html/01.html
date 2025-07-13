@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>01</title>
+  <style>
+    @font-face {
+      font-family: 'fav';
+      src: url('../fonts/fav.ttf') format('truetype');
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffc7df; /* Light pink */
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'fav', cursive;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      margin: 40px; /* Margin from all sides */
+      width: 80vw;
+      max-width: 800px;
+      height: auto;
+    }
+
+    .message-box {
+      background-color: #fffb99; /* Plain yellow */
+      padding: 40px 60px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+
+      width: 100%;
+      height: 400px; /* 👈 Fixed height */
+      overflow-y: auto; /* 👈 Makes content scrollable */
+    }
+
+    .message-box p {
+      margin: 0;
+      font-size: 20px;
+      color: #000000;
+      text-align: justify;
+      line-height: 2;
+      text-indent: 2em;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      background-color: #ff9be6;
+      border: 1;
+      border-color: black;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'fav', cursive;
+      font-size: 16px;
+      letter-spacing: 1px;
+      transition: background 0.3s ease, filter 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #f6e65d;
+  filter: brightness(1.2) drop-shadow(0 0 20px gold);
+    }
+  </style>
+</head>
+<body>
+ <div class="container">
+  <div class="message-box">
+
+<h1>Hey, blondey!</h1>
+
+<p>So there’s like a bunch of letters here and I think you already have an idea of what they are ’cause it’s pretty self-explanatory HAHA I’ve made something like this for all of my closest friends, and since I can’t really give you anything physical, I’ve made this digitally.</p>
+
+<p>Each of these was written with a different version of you in mind—the you that’s sad, tired, scared, or maybe the you that’s beaming and excited. They’re meant to be opened ONLY when you’re feeling what the prompt says. Not just out of curiosity. Not just because they’re there. But because you need them at that moment. So yes, I’m STRICTLY prohibiting you from opening them if it’s not the right moment yet.</p>
+
+<p>So even if I can’t be there with you, or you’re hesitating to come to me, I want you to feel like I’m right there beside you, saying the words you need to hear, at exactly the right time.</p>
+
+<p>So promise me!! Only when it matches your heart. They’ll be here waiting!! </p>
+
+<p>Tuck this one back safely.</p>
+<p>I’ll see you in the next letter. 🫶</p>
+
+<p>Love you, always.</p>
+<h3>—A.</h3>
+
+  </div>
+  <button class="back-btn" onclick="window.location.href='../html/read.html'">← Back</button>
+</div>
+
+</body>
+</html>

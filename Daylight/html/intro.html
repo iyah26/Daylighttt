@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daylight</title>
+  <link rel="stylesheet" href="../css/intro.css" />
+  <link rel="stylesheet" href="../css/password.css" />
+
+</head>
+
+<body>
+  <!-- 🐨🐰 Loading Screen -->
+  <div class="lily-cursor" id="lilyCursor"></div>
+
+<div class="loading-screen" id="loading-screen">
+  <div class="chase-loop">
+    <img src="../media/koala.png" class="koala" alt="Koala" />
+    <img src="../media/bunny.png" class="bunny" alt="Bunny" />
+  </div>
+  <div class="loading-text">
+    Loading
+    <span class="dot dot1">.</span>
+    <span class="dot dot2">.</span>
+    <span class="dot dot3">.</span>
+  </div>
+  <div class="loading-message">
+    see how you havent opened the website yet, but im already annoying you?
+  </div>
+</div>
+
+
+  <!-- 🌅 Welcome Page -->
+  <div class="page-wrapper" id="page-wrapper">
+    <div class="background"></div>
+    <div class="main-content" id="main-content">
+      <h1 class="header-text fade-up">Happy First Friendsarry,<br> Tais!</h1>
+      <button id="enterBtn" class="fade-up delayed">Ready?</button>
+    </div>
+  </div>
+
+    <script>
+    window.addEventListener('load', () => {
+      const loadingScreen = document.getElementById('loading-screen');
+      const welcomePage = document.getElementById('page-wrapper');
+      const enterBtn = document.getElementById('enterBtn');
+
+      console.log("Loading screen will hide in 10 seconds...");
+
+      setTimeout(() => {
+        loadingScreen.classList.add('hide');
+        welcomePage.classList.add('show');
+        console.log("Transition done: loading screen hidden, welcome shown.");
+      }, 10000);
+
+      enterBtn.addEventListener("click", function () {
+        window.location.href = "cassette.html";
+      });
+    });
+  </script>
+</body>
+</html>
+
+  <script src="../js/intro.js" defer></script>
+  <script src="../js/password.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>02</title>
+  <style>
+    @font-face {
+      font-family: 'fav';
+      src: url('../fonts/fav.ttf') format('truetype');
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffc7df; /* Light pink */
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'fav', cursive;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      margin: 40px; /* Margin from all sides */
+      width: 80vw;
+      max-width: 800px;
+      height: auto;
+    }
+
+    .message-box {
+      background-color: #fffb99; /* Plain yellow */
+      padding: 40px 60px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+
+      width: 100%;
+      height: 400px; /* 👈 Fixed height */
+      overflow-y: auto; /* 👈 Makes content scrollable */
+    }
+
+    .message-box p {
+      margin: 0;
+      font-size: 20px;
+      color: #000000;
+      text-align: justify;
+      line-height: 2;
+      text-indent: 2em;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      background-color: #ff9be6;
+      border: 1;
+      border-color: black;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'fav', cursive;
+      font-size: 16px;
+      letter-spacing: 1px;
+      transition: background 0.3s ease, filter 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #f6e65d;
+  filter: brightness(1.2) drop-shadow(0 0 20px gold);
+    }
+  </style>
+</head>
+<body>
+ <div class="container">
+  <div class="message-box">
+
+<h1>Heyyy, blondeyy </h1> 
+
+<p>Sooo... your brain’s doing cartwheels again, huh? You’re probably scripting three tragic endings to a situation that hasn’t even started yet.<br>
+(Hey, at least you’re creative.)</p>
+
+<p>I’m sorry it’s weighing on you tonight. Whatever it is, I just want to say that you’re stronger than this moment.</p>
+
+<p>You’ve survived 100% of your worst days so far—undefeated, actually. And hello?? You’ve put up with my cringe side. That alone deserves a medal.</p><br>
+
+
+<p>You don’t need to figure everything out right now. Seriously, no one has it all together (they’re just better at faking it).</p>
+
+<p>You’re allowed to take it one deep breath at a time. Cry if you must, LAUGH WITH ME, or eat (I stress eat, sorry)</p>
+
+<p>And not everything you’re worried about will go wrong, don’t worry! (Statistically, one of your 35 scenarios might actually turn out okay.)</p>
+
+<p>And you don’t have to go through this alone, ever. I’m here, remember???</p>
+
+<p>I’m already proud of you for handling this the best way you can! Hey, your beige mom is proud.</p>
+
+<p>You’ll get through this. I know it. And I’ve got you!!</p>
+
+<p>Love you, child.</p>
+
+<h3>—A.</h3>
+
+
+  </div>
+  <button class="back-btn" onclick="window.location.href='../html/read.html'">← Back</button>
+</div>
+
+</body>
+</html>
